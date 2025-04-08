@@ -61,13 +61,29 @@
   let strArr: string[] = ['a', 'b', 'c'];
   let boolArr: boolean[] = [true, false];
   let undefinedArr: undefined[] = [undefined, undefined];
-  // ??? 그럼 여러개의 타입을 한 배열에 넣을 수는 없음..?
-
+  let nullArr: null[] = [null, null];
+  let objectArr: {}[] = [{}, {}];
+  // ??? 그럼 여러개의 타입을 한 배열에 넣을 수는 없음..? -> tuple..!!
+  // n차원 배열
   let matrix: number[][] = [
     // number[][]: number 배열이 들어간 배열
     [1, 2, 3],
     [4, 5, 6],
-    [7, 8, 9], // ??? 근데 마지막에 콤마 왜 붙지..
+    [7, 8, 9],
+  ];
+  let cube: number[][][] = [
+    [
+      [1, 2],
+      [3, 4],
+    ],
+    [
+      [5, 6],
+      [7, 8],
+    ],
+    [
+      [9, 10],
+      [11, 12],
+    ],
   ];
 
   // 9. 튜플(tuple)
@@ -82,4 +98,12 @@
   ];
 
   // 10. bigint
+  console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+  const bigNumber: bigint = 9007199254740997n;
+  console.log(bigNumber);
+
+  // bigint는 bigint끼리만 연산 가능
+  console.log(100n + 200n);
+  // 100n, 200n 너무 작지 않나? : 숫자의 크기와 관계없이 'n'이 붙으면 bigint 타입인 것
+  // console.log(100n + 200); -> 불가능
 }
