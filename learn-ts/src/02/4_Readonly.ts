@@ -5,7 +5,7 @@
     readonly age: number;
     gender?: string; // 옵셔널 속성
   } = {
-    name: 'sucoding',
+    name: "sucoding",
     age: 20,
   };
 
@@ -15,5 +15,5 @@
 
   // 추후에 속성을 동적으로 추가
   // 처음에는 필요 없지만 나중에 필요한 것들을 위해
-  obj.gender = 'Female'; // ❌ 타입 오류 발생 -> 옵셔널 속성으로 지정해야됨
+  obj.gender = "Female"; // ❌ 타입 오류 발생 -> 옵셔널 속성으로 지정해야됨
 }
