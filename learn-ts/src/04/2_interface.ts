@@ -84,7 +84,7 @@
     // greet: () => void;
     greet(): void; // 이렇게도 표현 가능 !
   }
-  const user = {
+  const user: User2 = {
     name: "sucoding",
     age: 20,
     greet() {

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "category": "learning",
+    "publishedDate": "Published 21 Dec 2023",
+    "title": "JS & TS foundations",
+    "description": "These languages are the backbone of every website, defining structure, content, and presentation.",
+    "author": "Sucoding",
+    "imageArticle": "./src/assets/images/illustration-article.svg",
+    "authorAvatar": "https://api.dicebear.com/7.x/lorelei/svg"
+  }
+]

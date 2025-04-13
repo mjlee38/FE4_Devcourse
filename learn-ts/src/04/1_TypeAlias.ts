@@ -18,6 +18,7 @@
   let userId3: Id = "hulk";
   let productId3: Id = 1;
 }
+
 {
   // 타입 별칭 사용 x
   const user1: {
@@ -35,11 +36,12 @@
     age: 20,
   };
 }
+
 {
   // 타입 별칭 사용 o
   type User = {
     name: string;
-    readonly age?: number; // readonly, optional 가능 ! → readonly는 항상 속성 앞에만 ! (type 별칭 이름 앞에 불가능)
+    readonly age?: number; // readonly, optional property 가능 ! → readonly는 항상 속성 앞에만 ! (type 별칭 이름 앞에 불가능)
   };
   const user1: User = {
     name: "alice",
@@ -61,27 +63,30 @@
     name: "alice",
     age: 20,
   };
-  // user1.age = 30; ❌ 재할당 불가능
+  // user1.age = 30; ❌ 재할당 불가능 readonly type 이니까 !
 }
 {
-  // 리터럴 타입도 타입 별칭으로 가능 !
+  // 💡 리터럴 타입도 타입 별칭으로 가능 !
   type Status = "error" | "success";
   const status: Status = "error";
 }
 {
-  // 함수
+  // 💡 함수
+  // function sum(n1: number, n2: number): number { return n1 + n2; } -> 이 형태로는 타입 별칭 사용 불가능
+  // 함수 표현식 형태의 함수만 타입 별칭 사용 가능
+  // const sum: (n1: number, n2: number) => number = function sum(n1, n2) {return n1 + n2;}; 함수 표현식 형태로 먼저 바꾼 후 타입 별칭 !
   type SumFunc = (n1: number, n2: number) => number;
   const sum: SumFunc = function sum(n1, n2) {
     return n1 + n2;
   };
 }
 {
-  // 튜플
+  // 💡 튜플
   type Point = [number, number]; // 숫자 2개로 구성된 배열이라는 느낌을 확실히 주기 위해서는 number[] 보다는 [number, number]
   const point: Point = [10, 15];
 }
 {
-  // 인터섹션
+  // 💡 인터섹션으로 조합 가능 !
   type Nameable = {
     name: string;
   };
@@ -89,31 +94,47 @@
     age: number;
   };
   type Person = Nameable & Ageable; // 인터섹션으로 조합해서 새로운 타입 정의 가능 (기존의 타입이 재료로 활용될 수도 있다 !)
+  // 이렇게 조합해도 되지만 Person 타입이 훨씬 가독성 좋음 !
   type PersonOther = {
-    // 이렇게 조합해도 되지만 Person 타입이 훨씬 가독성 좋음 !
     name: string;
   } & {
     age: number;
   };
 }
 {
-  // 키 선택 타입 별칭
+  // 💡 키 선택 타입 별칭 (keyof)
   type Person = {
     name: string;
     age: number;
     gender: string;
   };
-  // 해당 대상의 키 값 추출 = "name" | "age" | "gender" 라는 리터럴 타입과 똑같아짐 👀
+  // 해당 대상의 키 값 추출 = "name" | "age" | "gender" 라는 리터럴 타입과 똑같아짐
+  // 이미 정해져있는 타입의 key를 가지고 새로운 타입을 만들고 싶을 때 사용하는 기법
+  // keyof 를 사용하면, 객체로 지정된 타입이 리터럴로 반환됨
   type PersonOfKeys = keyof Person;
   const key: PersonOfKeys = "age";
 }
 {
-  // 객체 선택 타입 별칭
+  // 💡 객체 선택 타입 별칭 (typeof)
   const user = {
     name: "sucoding",
     age: 20,
   };
   type User = typeof user; // 객체에 들어간 타입을 추출, 이 이후에 이 타입을 활용 가능
+  const user2: User = {
+    name: "a",
+    age: 30,
+  };
+}
+{
+  // 타입스크립트는 정적 언어이기 때문에 type 선언 부분의 위치가 이렇게 돼도 ok
+  type User = typeof user;
+
+  const user = {
+    name: "sucoding",
+    age: 20,
+  };
+
   const user2: User = {
     name: "a",
     age: 30,
@@ -153,6 +174,28 @@
     )[];
   };
 
+  const category: Category = {
+    name: "Electronics",
+    subCategory: [
+      {
+        name: "Phones",
+      },
+      {
+        name: "Laptops",
+        subCategory: [
+          {
+            name: "Gaming Laptops",
+          },
+        ],
+      },
+    ],
+  };
+}
+{
+  type Category = {
+    name: string;
+    subCategory: {name: string; subCategory?: {name: string}[]}[];
+  };
   const category: Category = {
     name: "Electronics",
     subCategory: [
