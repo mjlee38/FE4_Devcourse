@@ -26,6 +26,9 @@ export default {
 </script>
 <template>
   <!-- 커스텀 이벤트로 전달 -->
-  <CountGroup :count @increment="increment" @decrement="decrement" @reset="reset" />
+  <!-- <CountGroup :count @increment="increment" @decrement="decrement" @reset="reset" /> -->
+
+  <!-- props로 전달 (모두 v-bind로 전달) -->
+  <CountGroup :count :increment="increment" :decrement="decrement" :reset="reset" />
 </template>
 <style scoped></style>
