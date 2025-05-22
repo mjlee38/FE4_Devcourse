@@ -11,6 +11,9 @@ export default {
     reset: {
       type: Function,
     },
+    incrementByAmount: {
+      type: Function,
+    },
   },
 }
 </script>
@@ -18,5 +21,7 @@ export default {
   <button @click="decrement">-</button>
   <button @click="reset">0</button>
   <button @click="increment">+</button>
+  <!-- 매개변수 전달 -->
+  <button @click="incrementByAmount(10)">++</button>
 </template>
 <style scoped></style>

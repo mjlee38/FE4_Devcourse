@@ -35,6 +35,9 @@ export default {
     reset: {
       type: Function,
     },
+    incrementByAmount: {
+      type: Function,
+    },
   },
 }
 </script>
@@ -47,6 +50,11 @@ export default {
     @reset="$emit('reset')"
   />
   -->
-  <CountButtonsWithProps :increment="increment" :decrement="decrement" :reset="reset" />
+  <CountButtonsWithProps
+    :increment="increment"
+    :decrement="decrement"
+    :reset="reset"
+    :incrementByAmount="(amount) => incrementByAmount(amount)"
+  />
 </template>
 <style scoped></style>
