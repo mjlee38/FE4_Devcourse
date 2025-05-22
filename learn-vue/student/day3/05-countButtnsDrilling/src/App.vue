@@ -14,21 +14,18 @@ export default {
   methods: {
     decrement() {
       this.count -= 1
-      // console.log(this.count)
-      // console.log('decrement')
     },
     reset() {
       this.count = 0
-      // console.log('reset')
     },
     increment() {
       this.count += 1
-      // console.log('increment')
     },
   },
 }
 </script>
 <template>
-  <CountGroup :count="count" @increment="increment" @decrement="decrement" @reset="reset" />
+  <!-- 커스텀 이벤트로 전달 -->
+  <CountGroup :count @increment="increment" @decrement="decrement" @reset="reset" />
 </template>
 <style scoped></style>

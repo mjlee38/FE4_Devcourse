@@ -1,13 +1,12 @@
 <script>
 export default {
   name: 'CountButtons',
-  emits: ['incrementHandler', 'resetHandler', 'decrementHandler'],
+  emits: ['increment', 'reset', 'decrement'],
 }
 </script>
 <template>
-  <!-- 나 여기에 매개변수 전달했는데.. 필요없음.. 왜 했지...? ㅋㅋ... -->
-  <button @click="$emit('decrementHandler')">-</button>
-  <button @click="$emit('resetHandler')">0</button>
-  <button @click="$emit('incrementHandler')">+</button>
+  <button @click="$emit('decrement')">-</button>
+  <button @click="$emit('reset')">0</button>
+  <button @click="$emit('increment')">+</button>
 </template>
 <style scoped></style>

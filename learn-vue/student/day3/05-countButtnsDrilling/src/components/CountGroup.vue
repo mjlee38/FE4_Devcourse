@@ -8,12 +8,13 @@ export default {
     CountDisplay,
     CountButtons,
   },
-  // props로 전달 받은건 props로
+  // props로 전달한 건 props로 받고
   props: {
     count: {
       type: Number,
     },
   },
+  // 사용자 정의 이벤트로 전달한 건 emits로 받기
   emits: ['increment', 'decrement', 'reset'],
 }
 </script>
