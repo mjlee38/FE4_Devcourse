@@ -24,6 +24,7 @@ onMounted(() => {
 })
 </script>
 <template>
+  <!-- 한 개의 영화만 추출 (computed) -->
   <MainBanner :movies="movieUpcomingList" :loading="movieUpcomingListLoading" />
   <MainMovie />
 </template>
