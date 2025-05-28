@@ -24,7 +24,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <MainBanner />
+  <MainBanner :movies="movieUpcomingList" :loading="movieUpcomingListLoading" />
   <MainMovie />
 </template>
 <style scoped></style>
