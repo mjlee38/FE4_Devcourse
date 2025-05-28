@@ -26,6 +26,12 @@ onMounted(() => {
 <template>
   <!-- 한 개의 영화만 추출 (computed) -->
   <MainBanner :movies="movieUpcomingList" :loading="movieUpcomingListLoading" />
-  <MainMovie />
+  <MainMovie
+    title="상영중인 영화"
+    sub-title="Now Movies"
+    type="now_playing"
+    :movies="moviePlayingList"
+    :loading="moviePlayingListLoading"
+  />
 </template>
 <style scoped></style>

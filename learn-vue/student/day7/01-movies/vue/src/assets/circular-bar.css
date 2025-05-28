@@ -21,7 +21,7 @@
   width: 4.3em;
   height: 4.3em;
   background-color: white;
-  content: " ";
+  content: ' ';
 }
 /* Text inside the control */
 .progress-circle span {
@@ -73,6 +73,7 @@
   display: none;
 }
 
+/* scss로 작성하면 반복문 지원해서 이런 코드 작성하기 쉬움 */
 /* Progress bar rotation position */
 .progress-circle.p0 .value-bar {
   display: none;

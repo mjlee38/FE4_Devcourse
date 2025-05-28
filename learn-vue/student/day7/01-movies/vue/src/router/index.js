@@ -15,7 +15,7 @@ const router = createRouter({
       component: () => import('../views/DetailView.vue'),
     },
     {
-      path: '/movie/:type',
+      path: '/movie/:type', // movie/now_playing, movie/upcoming
       name: 'movieList',
       component: () => import('../views/ListView.vue'),
     },
